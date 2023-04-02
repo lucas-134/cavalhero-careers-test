@@ -5,7 +5,7 @@
     <style>
       h1 {
         font-size: 40px;
-        font-family: Roboto;
+        font-family: arial;
         font-weight: normal;
         color: rgb(180, 180, 100);
         text-align: center;
@@ -13,7 +13,7 @@
 
       h2 {
         font-size: 32px;
-        font-family: Roboto;
+        font-family: arial;
         font-weight: normal;
         color: rgb(100, 100, 100);
         text-align: center;
@@ -26,8 +26,8 @@
       }
 
       .bodytext {
-        font-family: Roboto;
-        font-weight: bold;
+        font-family: helvetica;
+        font-weight: normal;
         color: rgb(80, 80, 180);
       }
 
@@ -39,14 +39,20 @@
   </head>
   <body>
     <div id="container">
-      <h1>Hello, get the latest job informations</h1>
+      <h1>
+        Empregos na {{company_name}}
+      </h1>
       <img id="banner" src=https://unified-platform.lucas624.repl.co/static/watch%20store.jpg
         height="320">
       <h2>Sobre a Cavalhero</h2>
       <p class="bodytext">A Cavalhero Importadora tem como principal missão, elevar o estilo de vida dos nossos clientes para o próximo patamar. Para cumprir essa missão, nós oferecemos produtos de melhor qualidade que irão transformar você em uma pessoa ainda mais estiloso e elegante.
       </p>
       <h2>Vagas Abertas</h2>
-      <p class="bodytext">Todo here</p>
+      <div class="bodytext">
+        {% for shokumu in jobs %}
+          {% include 'job_item.html'%}
+        {% endfor%}
+      </div>
       <div style="text-align: center;">
       <button>Entre em contato</button>
       <p>Copyright 2023, Cavalhero Importadora</p>
