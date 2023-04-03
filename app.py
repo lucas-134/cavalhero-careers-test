@@ -35,7 +35,7 @@ def hello_world():
                           jobs=jobs_lst,
                           company_name='Cavalhero Importadora')
 
-@app.route("/api/jobs")
+@app.route("/api/jo")
 def job_lst():
     return jsonify(jobs_lst)
 
