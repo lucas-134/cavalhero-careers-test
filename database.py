@@ -19,3 +19,16 @@ def load_jobs_from_db():
     for row in result_all:
       dict_lst.append(row._mapping)
     return dict_lst
+
+#print(load_jobs_from_db())
+
+def load_job_from_db(id):
+  with engine.connect() as conn:
+    result = conn.execute(text("select * from jobs2 where id =" + str(id)))
+    job_data = result.all()
+    if len(job_data) == 0:
+      return None
+    else:
+      return job_data[0]._mapping
+
+print(load_job_from_db(2))

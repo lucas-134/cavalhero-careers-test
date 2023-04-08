@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-from database import load_jobs_from_db
+from database import load_jobs_from_db, load_job_from_db
 
 
 app = Flask(__name__)
@@ -44,6 +44,15 @@ def job_lst():
     print(job_lst)
     print(type(job_lst))
     return jsonify(job_lst)
+
+@app.route("/job/<id>")
+def show_job(id):
+  chosen_job = load_job_from_db(id)
+  if not chosen_job:
+    return "Job wasn't found", 404
+  return render_template('jobpage.html',
+                        job = chosen_job,
+                        company_name='Cavalhero Importadora')
 
 print(__name__)
 if __name__ == "__main__":

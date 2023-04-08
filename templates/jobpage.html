@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{job.title}} - Cavalhero Careers</title>
+    {% include 'bootstrap.html' %}
+  </head>
+  <body>
+    {% include 'nav.html' %}
+
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">
+        Empregos na {{company_name}}
+      </h1>
+      <h3>Title</h3>
+      <p>{{job.title}}</p>
+      <h4>Reposnsibilities<h4>
+      <ul>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+      </ul>
+      <h4>Requirements<h4>
+      <ol>
+        <li>item 1</li>
+        <li>item 2</li>
+        <li>item 3</li>
+      </ol>
+      <h4>Location</h4>
+      <p>{{job.location}}</p>
+      <h4>Salary</h4>
+      <p>{{job.salary}}</p>
+    </div>
+    {% include 'footer.html' %}
+  </body>
+</html>
