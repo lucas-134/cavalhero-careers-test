@@ -31,4 +31,10 @@ def load_job_from_db(id):
     else:
       return job_data[0]._mapping
 
-print(load_job_from_db(2))
+#print(load_job_from_db(2))
+
+def add_application_to_db(id, application):
+  with engine.connect() as conn:
+    query = text("INSERT INTO applications (job_id, full_name, email, phone) VALUES (:job_id, :name, :email, :phone)")
+    
+    conn.execute(query, {"job_id": id, "name": application['name'], "email": application['email'], "phone": application['phone']})

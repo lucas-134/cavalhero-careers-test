@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Formulário Enviado</title>
+    {% include 'bootstrap.html' %}
+  </head>
+  <body>
+    {% include 'nav.html' %}
+    <div class="container">
+      <h1 class="text-center mt-2 mb-4">
+        Empregos na {{company}}
+      </h1>
+      <p>Seu formulário para {{job['title']}} foi enviado com sucesso</p>
+      <b>Name</b>
+      <div class="mb-4">{{application['name']}}</div>
+      
+      <b>Email</b>
+      <div class="mb-4">{{application['email']}}</div>
+      
+      <b>Telefone</b>
+      <div class="mb-4">{{application['phone']}}</div>
+    </div>
+  </body>
+</html>
