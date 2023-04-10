@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import load_jobs_from_db, load_job_from_db, add_application_to_db
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db, add_note_data
 
 
 app = Flask(__name__)
@@ -63,6 +63,21 @@ def apply_to_job(id):
                         application = data,
                         company = 'Cavalhero Express',
                         job = chosen_job)
+
+@app.route("/notepad", methods=['get', 'post'])
+def notepad():
+    if request.method == "POST":
+      text_data = request.form['texto_inserido']
+      print(text_data)
+      add_note_data(text_data)
+      return render_template('test.html',
+                            note_inserted = text_data)
+    else:
+      return render_template('notepad.html')
+
+@app.route("/test")
+def test():
+    return render_template('test.html')
 
 print(__name__)
 if __name__ == "__main__":

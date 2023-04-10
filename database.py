@@ -38,3 +38,9 @@ def add_application_to_db(id, application):
     query = text("INSERT INTO applications (job_id, full_name, email, phone) VALUES (:job_id, :name, :email, :phone)")
     
     conn.execute(query, {"job_id": id, "name": application['name'], "email": application['email'], "phone": application['phone']})
+
+
+def add_note_data(text_to_db):
+  with engine.connect() as conn:
+    query = text("INSERT INTO notes (content) VALUES (:content)")
+    conn.execute(query, {"content": text_to_db})
